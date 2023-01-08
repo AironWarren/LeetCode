@@ -21,17 +21,27 @@ Example 3:
 Input: nums = [3,3], target = 6
 Output: [0,1]
 """
-nums = [3, 2, 4]
-target = 6
-a = 0
-b = 0
-for i in range(len(nums)):
-    for j in range(i + 1, len(nums)):
-        a = i
-        b = j
-        if (nums[i] + nums[j]) == target:
-            break
-    if (nums[i] + nums[j]) == target:
-        break
 
-print(i, j)
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        a = 0
+        b = 0
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                a = i
+                b = j
+                if (nums[i] + nums[j]) == target:
+                    break
+            if (nums[a] + nums[b]) == target:
+                break
+
+        return a, b
+
+
+print(Solution().twoSum([2, 7, 11, 15], 9))
