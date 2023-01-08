@@ -21,24 +21,17 @@ Example 3:
 Input: nums = [3,3], target = 6
 Output: [0,1]
 """
-nums = [1, 4, 5, 7]
-target = 9
+nums = [3, 2, 4]
+target = 6
 a = 0
 b = 0
-for item in nums:
-    for item2 in nums[(nums.index(item) + 1):]:
-        if (item + item2) == target:
-            a = item
-            b = item2
+for i in range(len(nums)):
+    for j in range(i + 1, len(nums)):
+        a = i
+        b = j
+        if (nums[i] + nums[j]) == target:
             break
-    if (a + b) == target:
+    if (nums[i] + nums[j]) == target:
         break
-if a == b:
-    ans = [nums.index(a), nums.index(b, 1)]
-    print('[{0},{1}]'.format(ans[0], ans[1]))
-    # return ans
-else:
-    ans = [nums.index(a), nums.index(b)]
-    print('[{0},{1}]'.format(ans[0], ans[1]))
-    # return ans
 
+print(i, j)
